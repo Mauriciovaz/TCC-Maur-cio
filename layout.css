@@ -1,0 +1,41 @@
+body{
+	background-color: #37474f;
+}
+
+.card{
+    background-color: rgb(220,220,220);
+}
+
+.card-title{
+    color: black; font-family: arial;
+}
+
+.btn{
+	font-family: arial;
+}
+
+.btn:hover{
+    background-color: blue;
+    top: -5px;
+}
+
+.btn:active{
+    position: relative;
+    top: 5px;
+    box-shadow: none;
+}
+
+.formulario{
+	color: black; 
+	font-family: arial;
+}
+
+#formularioInterno{
+	background-color: white;
+}
+
+.link{
+	color: blue; 
+	text-decoration: underline;
+}
+
