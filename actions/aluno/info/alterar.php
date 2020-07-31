@@ -18,7 +18,7 @@ $sql = "SELECT * FROM cadastro WHERE email='$email'";
 
      		$extensao = strtolower(substr($_FILES['foto']['name'], -4));
 			$novo_nome = md5(time()).$extensao;
-			$diretorio = "C:\wamp\www\TCC_mauricio2/fotos";
+			$diretorio = "../../../fotos/";
 
   			move_uploaded_file($_FILES['foto']['tmp_name'], $diretorio.$novo_nome);
 
