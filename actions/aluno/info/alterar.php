@@ -18,7 +18,7 @@ $sql = "SELECT * FROM cadastro WHERE email='$email'";
 
      		$extensao = strtolower(substr($_FILES['foto']['name'], -4));
 			$novo_nome = md5(time()).$extensao;
-			$diretorio = "fotos/";
+			$diretorio = "C:\wamp\www\TCC_mauricio2/fotos";
 
   			move_uploaded_file($_FILES['foto']['tmp_name'], $diretorio.$novo_nome);
 
@@ -34,7 +34,7 @@ $sql = "SELECT * FROM cadastro WHERE email='$email'";
 $resultado = mysqli_query($conexao,$sql);
 
 if ($resultado) {
-	header("Location: index.php");
+	echo "<script> window.location.href='../../../index.php' </script>";
 }
 else{
 	echo "erro";

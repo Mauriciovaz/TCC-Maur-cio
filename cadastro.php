@@ -30,7 +30,7 @@
          </legend>
          <br>
           <div class="formulario">
-          	<form action="cadastrar.php" method="POST" enctype="multipart/form-data">
+          	<form action="actions/cadastrar.php" method="POST" enctype="multipart/form-data">
               <p class="formulario">E-mail: 
               <br>
               <br>
@@ -50,7 +50,7 @@
               <div class="file-field input-field">
               <div class="btn">
               <span>Foto de perfil</span>
-              <input type="file" name="foto" required>
+              <input type="file" name="foto">
               </div>
               <div class="file-path-wrapper">
               <input class="file-path validate" type="text">

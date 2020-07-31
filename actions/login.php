@@ -1,6 +1,6 @@
 <?php
 
-require "bd.php";
+require "../bd.php";
 session_start();
 
 $email = $_POST['email'];
@@ -14,22 +14,22 @@ if (isset($entrar)) {
       if (mysqli_num_rows($verifica)<=0){
         echo"<script language='javascript' type='text/javascript'>
         alert('E-mail e/ou senha incorretos');window.location
-        .href='index.php';</script>";
+        .href='../index.php';</script>";
         die();
       }else{
         $array = mysqli_fetch_array($verifica);
         if ($array['tipo'] == 'administrador') {
-          header("Location: pagina_administrador.php");
+          header("Location: ../users/pagina_administrador.php");
         }
         if ($array['tipo'] == 'professor') {
           setcookie("nome",$array['nome']);
-          header("Location: pagina_professor.php");
+          header("Location: ../users/pagina_professor.php");
         }
         if ($array['tipo'] == 'aluno') {
-          setcookie("nome",$array['nome']);
-
-        $_SESSION['email'] = $email;
-          header("Location: pagina_aluno.php");
+          
+          $_SESSION['nome'] = $array['nome'];
+          $_SESSION['email'] = $email;
+          header("Location: ../users/pagina_aluno.php");
         }
         
       }

@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
-  <link rel="stylesheet" type="text/css" href="layout.css">
+  <link rel="stylesheet" type="text/css" href="design/layout.css">
     <style type="text/css">
     </style>
 </head>
@@ -36,11 +36,11 @@
          </legend>
          <br>
           <div class="formulario">
-          	<form method="POST" action="login.php">
+          	<form method="POST" action="actions/login.php">
           		<p class="formulario">E-mail: 
               <br>
               <br>
-              <input type="text" name="email" id="formularioInterno" required minlength="8" maxlength="30"></p>
+              <input type="email" name="email" id="formularioInterno" required minlength="8" maxlength="30" ></p>
           		<br>
           		<p class="formulario">Senha: 
               <br>
