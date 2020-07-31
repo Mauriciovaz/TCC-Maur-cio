@@ -22,7 +22,8 @@ if (isset($entrar)) {
           header("Location: ../users/pagina_administrador.php");
         }
         if ($array['tipo'] == 'professor') {
-          setcookie("nome",$array['nome']);
+          $_SESSION['nome'] = $array['nome'];
+          $_SESSION['email'] = $email;
           header("Location: ../users/pagina_professor.php");
         }
         if ($array['tipo'] == 'aluno') {

@@ -39,7 +39,7 @@ $resultFoto = $dados['foto'];
 
     </div>
   </nav>
-
+  <br>
    <center>
    <img src="../design/logo.png">
    </center>
