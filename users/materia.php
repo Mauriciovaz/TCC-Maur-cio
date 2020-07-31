@@ -8,6 +8,7 @@
 	 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   	<link type="text/css" rel="stylesheet" href="../css/materialize.min.css"  media="screen,projection"/>
     <link rel="stylesheet" type="text/css" href="../design/layout.css">
+
 </head>
 <body>
 
@@ -39,11 +40,15 @@
                	  </div>
                   <div class="input-field col s12">
                   <center>
-                  <textarea id="textarea1" class="materialize-textarea" style="width: 90%; text-align: left;" name="conteudo" placeholder="Adicionar conteúdo" maxlength="10000" minlength="1"></textarea>
+                  <textarea id="conteudo" class="materialize-textarea" style="width: 90%; text-align: left; height: 200px;" name="conteudo" placeholder="Adicionar conteúdo" maxlength="10000" minlength="1"></textarea>
                   
                   </div>
                 </center>
                </div>
+               <script src="../ckeditor/ckeditor.js"> </script>
+              <script>
+                CKEDITOR.replace('conteudo');
+               </script>
           <br>
           <center>
           <input type="submit" name="salvar" class="btn" value="salvar">

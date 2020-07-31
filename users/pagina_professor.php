@@ -1,19 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Página aluno</title>
+	<title>Página Professor</title>
 	<meta charset="utf-8">
 	<script type="text/javascript" src="../js/jquery-3.4.1.js"> </script>
   <script type="text/javascript" src="../js/materialize.min.js"></script>
 	 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   	<link type="text/css" rel="stylesheet" href="../css/materialize.min.css"  media="screen,projection"/>
     <link rel="stylesheet" type="text/css" href="../design/layout.css">
+    <link rel="stylesheet" href="../owlcarousel/dist/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="../owlcarousel/dist/assets/owl.theme.default.min.css">
+    <script src="../js/jquery.mask.min"></script>
+    <script src="../owlcarousel/dist/owl.carousel.min.js"></script>
 </head>
 <body>
 <script type="text/javascript">
   $(document).ready(function(){
     $('.sidenav').sidenav();
   });
+
+  $(document).ready(function(){
+  $(".owl-carousel").owlCarousel();
+});
 </script>
 <?php
 
@@ -103,8 +111,45 @@ $resultFoto = $dados['foto'];
 
    ?>
   </ul>
-  
-  
+<br>
+
+<center>
+<h4 style="color: white; -webkit-text-stroke-width: 2.5px; -webkit-text-stroke-color: #000; font-size: 60px; font-family: arial; margin-left: 10px; margin-right: 10px;" class="z-depth-3">Conteúdos</h4>
+</center>
+  <div class="row">
+     <div class="owl-carousel owl-theme owl-loaded">
+        <div class="owl-stage-outer">
+           <div class="owl-stage">
+          <?php
+          require "../bd.php";
+          $sql2 = "SELECT * FROM materia";
+          $resultado2 = mysqli_query($conexao,$sql2);
+          
+          if(mysqli_num_rows($resultado) > 0){
+          while ($linha = mysqli_fetch_array($resultado2)) {
+          ?>
+          <div class="owl-item">
+          <div class="col s12 m12">
+          <div class="card small hoverable z-depth-3">
+            <span class="card-title">
+              <h5 style="text-align: center;"><?php echo $linha['titulo'] ?>
+              </h5>
+            </span>
+
+            <div style="margin-left: 10px; height: 20px;"> <?php echo $linha['conteudo']; ?> </div>
+            <div class="card-action">
+              <p> <a href=""> Continuar lendo</a> </p>
+            
+          </div>
+          </div>
+          </div>
+        </div>
+<?php
+          }
+          }
+           
+
+?>
 
 <?php
 }
