@@ -23,24 +23,24 @@
   <br>
 <div class="row">
     <div class="col s12 m8 push-m2">
-      <div class="card #f3e5f5 purple lighten-5">
+      <div class="card #ffebee red lighten-5">
         <div class="card-content white-text">
         <fieldset>
           <legend style="font-family: arial; font-size: 30px; color: black;" align="center">Adicionar Conteúdo</legend>
           <br>
           <form action="../actions/salvar_materia.php" method="POST">
-          <center>
-          <div style="margin-left: 50px; color: black; font-size: 20px; font-family: arial; font-weight: bold;">Título: 
-          <input type="text" name="titulo" style="width: 40%; margin-left: 20px;" placeholder="Adicione aqui o título" maxlength="100" minlength="1">
+          
+          <div style="margin-left: 10px; color: black; font-size: 20px; font-family: arial; font-weight: bold;">Título: 
+          <input type="text" name="titulo" style="width: 40%; margin-left: 20px;" placeholder="Adicione aqui o título" maxlength="100" minlength="1" required>
           </div>
-          </center>
+          
           <br>
                	 <div class="row">
-               	  <div style="color: black; margin-left: 50px; font-size: 20px; font-weight: bold;">Conteúdo: 
+               	  <div style="color: black; margin-left: 20px; font-size: 20px; font-weight: bold;">Conteúdo: 
                	  </div>
                   <div class="input-field col s12">
                   <center>
-                  <textarea id="conteudo" class="materialize-textarea" style="width: 90%; text-align: left; height: 200px;" name="conteudo" placeholder="Adicionar conteúdo" maxlength="10000" minlength="1"></textarea>
+                  <textarea id="conteudo" class="materialize-textarea" style="width: 90%; text-align: left; height: 200px;" name="conteudo" placeholder="Adicionar conteúdo" maxlength="10000" minlength="1" required></textarea>
                   
                   </div>
                 </center>

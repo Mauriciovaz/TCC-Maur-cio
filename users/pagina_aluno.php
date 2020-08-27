@@ -8,12 +8,20 @@
 	 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   	<link type="text/css" rel="stylesheet" href="../css/materialize.min.css"  media="screen,projection"/>
     <link rel="stylesheet" type="text/css" href="../design/layout.css">
+    <link rel="stylesheet" href="../owlcarousel/dist/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="../owlcarousel/dist/assets/owl.theme.default.min.css">
+    <script src="../js/jquery.mask.min"></script>
+    <script src="../owlcarousel/dist/owl.carousel.min.js"></script>
 </head>
 <body>
 <script type="text/javascript">
   $(document).ready(function(){
     $('.sidenav').sidenav();
   });
+
+  $(document).ready(function(){
+  $(".owl-carousel").owlCarousel();
+});
 </script>
 <?php
 
@@ -101,6 +109,58 @@ $resultFoto = $dados['foto'];
    ?>
   </ul>
   
+  <center>
+<h4 style="color: white; -webkit-text-stroke-width: 2.5px; -webkit-text-stroke-color: #000; font-size: 60px; font-family: arial; margin-left: 10px; margin-right: 10px;" class="z-depth-3">Conteúdos</h4>
+</center>
+  <div class="row">
+     <div class="owl-carousel owl-theme owl-loaded">
+        <div class="owl-stage-outer">
+           <div class="owl-stage">
+          <?php
+          require "../bd.php";
+          $sql2 = "SELECT * FROM materia";
+          $resultado2 = mysqli_query($conexao,$sql2);
+          
+          if(mysqli_num_rows($resultado) > 0){
+          while ($linha = mysqli_fetch_array($resultado2)) {
+          ?>
+          <div class="owl-item">
+          <div class="col s12 m12">
+          <div class="card small hoverable z-depth-3" style="background-color: white;">
+            <div style="background-color: #9fa8da;">
+            <span class="card-title">
+              <h5 style="text-align: center;"><?php echo $linha['titulo'] ?>
+              </h5>
+            </span>
+            </div>
+
+            <br>
+            <br>
+           
+            <div style="margin-left: 10px; height: 20px; font-size: 12px; text-align: justify; margin-right: 10px; font-weight: bold;"> 
+            <?php
+            $text = explode(" ", $linha['conteudo']);
+            for ($i=0; $i <= 30; $i++) { 
+              echo "$text[$i] ";
+            }
+           
+            ?>
+            <p style="color: red;">...Para continuar lendo o conteúdo, clique na opção abaixo.</p>
+             </div>
+
+            <div class="card-action" style="background-color: #9fa8da;">
+             <center> <a href="conteudo.php?id=<?php echo $linha['id']; ?>" style="color: black; font-weight: bold;"> Acessar o conteúdo</a> </center>
+            
+          </div>
+          </div>
+          </div>
+        </div>
+<?php
+          }
+          }
+           
+
+?>
   
 
 <?php

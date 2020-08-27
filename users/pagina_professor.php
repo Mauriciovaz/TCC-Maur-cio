@@ -97,7 +97,7 @@ $resultFoto = $dados['foto'];
     <br>
     <br>
     <div align="center">
-     <a class="btn #ff1744 red accent-3" href="pagina_aluno.php" style="color: white;">Voltar</a>
+     <a class="btn #ff1744 red accent-3" href="pagina_professor.php" style="color: white;">Voltar</a>
      <button type="submit" class="btn #4caf50 green" style="color: white;">Salvar</button>
    </div>
       
@@ -130,15 +130,28 @@ $resultFoto = $dados['foto'];
           ?>
           <div class="owl-item">
           <div class="col s12 m12">
-          <div class="card small hoverable z-depth-3">
+          <div class="card small hoverable z-depth-3" style="background-color: white;">
+            <div style="background-color: #9fa8da;">
             <span class="card-title">
-              <h5 style="text-align: center;"><?php echo $linha['titulo'] ?>
+              <h5 style="text-align: center; "><?php echo $linha['titulo'] ?>
               </h5>
             </span>
+            </div>
 
-            <div style="margin-left: 10px; height: 20px;"> <?php echo $linha['conteudo']; ?> </div>
-            <div class="card-action">
-              <p> <a href=""> Continuar lendo</a> </p>
+            <br>
+            <br>
+            <div style="margin-left: 10px; height: 20px; font-size: 12px; text-align: justify; margin-right: 10px; font-weight: bold;"> 
+            <?php
+            $text = explode(" ", $linha['conteudo']);
+            for ($i=0; $i <= 30; $i++) { 
+              echo "$text[$i] ";
+            }
+           
+            ?>
+            <p style="color: red; font-size: 15px;">...Para continuar lendo o conteúdo, clique na opção abaixo.</p>
+             </div>
+            <div class="card-action" style="background-color: #9fa8da;">
+             <center> <a href="conteudo.php?id=<?php echo $linha['id']; ?>" style="color: black; font-weight: bold;"> Acessar o conteúdo</a> </center>
             
           </div>
           </div>
@@ -150,10 +163,11 @@ $resultFoto = $dados['foto'];
            
 
 ?>
-
 <?php
 }
 }
 ?>
+
+
 </body>
 </html>

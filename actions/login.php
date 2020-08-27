@@ -18,9 +18,6 @@ if (isset($entrar)) {
         die();
       }else{
         $array = mysqli_fetch_array($verifica);
-        if ($array['tipo'] == 'administrador') {
-          header("Location: ../users/pagina_administrador.php");
-        }
         if ($array['tipo'] == 'professor') {
           $_SESSION['nome'] = $array['nome'];
           $_SESSION['email'] = $email;
