@@ -51,6 +51,7 @@
                </script>
           <br>
           <center>
+          <a href="pagina_professor.php" class="btn" style="background-color: red;"> Cancelar</a>
           <input type="submit" name="salvar" class="btn" value="salvar">
           </center>
           </form>

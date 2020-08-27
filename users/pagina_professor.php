@@ -46,6 +46,7 @@ $resultFoto = $dados['foto'];
       </ul>
       <ul class="right hide-on-med-and-down">
         <li><a href="materia.php">Adicionar conteúdo</a></li>
+        <li><a href="lista_conteudo.php"> Lista de conteúdo</a></li>
       </ul>
 
     </div>
@@ -140,7 +141,7 @@ $resultFoto = $dados['foto'];
 
             <br>
             <br>
-            <div style="margin-left: 10px; height: 20px; font-size: 12px; text-align: justify; margin-right: 10px; font-weight: bold;"> 
+            <div style="margin-left: 10px; height: 20px; font-size: 13px; text-align: justify; margin-right: 10px;"> 
             <?php
             $text = explode(" ", $linha['conteudo']);
             for ($i=0; $i <= 30; $i++) { 
