@@ -34,10 +34,10 @@ $sql = "SELECT * FROM cadastro WHERE email='$email'";
 $resultado = mysqli_query($conexao,$sql);
 
 if ($resultado) {
-	echo "<script> window.location.href='../../../index.php' </script>";
+	echo "<script> alert('Informações alteradas com sucesso. Favor, fazer login novamente.'); window.location.href='../../../index.php'; </script>";
 }
 else{
-	echo "erro";
+	echo "<script> alert('Erro ao alterar'); window.location.href='../../../index.php'; </script>";
 }
 
 ?>

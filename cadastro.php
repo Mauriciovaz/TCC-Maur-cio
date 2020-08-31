@@ -39,12 +39,12 @@
           		<p class="formulario">Nome de Usuário: 
               <br>
               <br>
-              <input type="text" name="nome" id="formularioInterno" required minlength="1" maxlength="30"></p>
+              <input type="text" name="nome" id="formularioInterno" required minlength="1" maxlength="50"></p>
               <br>
           		<p class="formulario">Senha: 
               <br>
               <br>
-              <input type="password" name="senha" id="formularioInterno" required minlength="8" maxlength="12"></p>
+              <input type="password" name="senha" id="formularioInterno" required minlength="8" maxlength="30"></p>
           		<br>
               <br>
               <div class="file-field input-field">

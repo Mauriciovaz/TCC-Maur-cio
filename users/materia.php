@@ -14,22 +14,21 @@
 
 <nav>
     <div class="nav-wrapper #1976d2 blue darken-2"> 
-      <ul id="nav-mobile" class="left hide-on-med-and-down">
-        <li><a href="pagina_professor.php">Voltar</a></li>
-      </ul>
+      <a href="pagina_professor.php" style="margin-left: 4px;">Voltar</a>
     </div>
   </nav>
   <br>
   <br>
 <div class="row">
-    <div class="col s12 m8 push-m2">
-      <div class="card #ffebee red lighten-5">
+    <div class="col s12 m8 push-m2 z-depth-3">
+      <div class="card" style="background-color: rgb(244,164,96);">
+        
         <div class="card-content white-text">
-        <fieldset>
-          <legend style="font-family: arial; font-size: 30px; color: black;" align="center">Adicionar Conteúdo</legend>
+        
           <br>
           <form action="../actions/salvar_materia.php" method="POST">
-          
+          <fieldset>
+            <legend class="center" style="color: black; font-size: 25px; font-weight: bold;">Adicionar Conteúdo</legend>
           <div style="margin-left: 10px; color: black; font-size: 20px; font-family: arial; font-weight: bold;">Título: 
           <input type="text" name="titulo" style="width: 40%; margin-left: 20px;" placeholder="Adicione aqui o título" maxlength="100" minlength="1" required>
           </div>
@@ -50,12 +49,15 @@
                 CKEDITOR.replace('conteudo');
                </script>
           <br>
+
+          
           <center>
           <a href="pagina_professor.php" class="btn" style="background-color: red;"> Cancelar</a>
           <input type="submit" name="salvar" class="btn" value="salvar">
           </center>
+          </fieldset>
           </form>
-         </fieldset>
+         
         </div>
       </div>
     </div>

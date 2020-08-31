@@ -13,9 +13,7 @@
 
 <nav>
     <div class="nav-wrapper #1976d2 blue darken-2"> 
-      <ul class="left hide-on-med-and-down">
-        <li><a href="pagina_professor.php">Voltar</a></li>
-      </ul>
+      <a href="pagina_professor.php" style="margin-left: 4px;">Voltar</a>
     </div>
   </nav>
 

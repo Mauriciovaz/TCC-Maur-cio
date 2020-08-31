@@ -21,6 +21,24 @@
 
   $(document).ready(function(){
   $(".owl-carousel").owlCarousel();
+
+  var owl1 = $("#carousel1");
+  owl1.owlCarousel({
+    responsive: {
+  0:{
+    items: 1
+  },
+  600:{
+    items: 2
+  },
+  700:{
+    items: 3
+  },
+  1000: {
+    items: 5
+  }
+}
+  });
 });
 </script>
 <?php
@@ -42,13 +60,16 @@ $resultFoto = $dados['foto'];
     <div class="nav-wrapper #1976d2 blue darken-2"> 
 
       <ul id="nav-mobile" class="left hide-on-med-and-down">
-        <li><a href="#" data-target="slide-out" class="sidenav-trigger show-on-large"><i class="material-icons">menu</i></a></li>
       </ul>
       <ul class="right hide-on-med-and-down">
-        <li><a href="materia.php">Adicionar conteúdo</a></li>
-        <li><a href="lista_conteudo.php"> Lista de conteúdo</a></li>
+        
+        <li></li>
       </ul>
-
+      <a href="#" data-target="slide-out" class="sidenav-trigger show-on-large"><i class="material-icons">menu</i></a>
+      <div class="right" style="margin-right: 4px;">
+      <a href="materia.php" class="btn">Adicionar conteúdo</a>
+      <a href="lista_conteudo.php" class="btn"> Lista de conteúdo</a>
+      </div>
     </div>
   </nav>
 
@@ -56,21 +77,21 @@ $resultFoto = $dados['foto'];
    <img src="../design/logo.png">
    </center>
 
-  <ul id="slide-out" class="sidenav" style="background-color: #37474f;">
+  <ul id="slide-out" class="sidenav" style="background-color: #1976d2;">
     <li><div class="user-view">
       <img  class="circle" style="width: 200px; height: 200px;" src="../fotos/<?php echo $resultFoto; ?>">
       <span class="white-text name" style="font-family: arial; font-weight: bold; font-size: 20px;">
       <blockquote><?php $nome = $_SESSION['nome']; echo "$nome" ?> </blockquote>
       </span>
       <span class="white-text email" style="font-size: 17px;"><?php echo "$email" ?></span>
-      <a href="#" data-target="slide-out1" class="sidenav-trigger show-on-large"> Configurações </a>
+      <a href="#" data-target="slide-out1" class="sidenav-trigger show-on-large" style="color: white; font-size: 17px; font-family: arial;"> Configurações </a>
     </div></li>
     <li>
     <a class="waves-effect" href="../actions/sair.php" style="color: white; font-size: 17px; font-family: arial;">Sair</a>
     </li>
   </ul>
 
-  <ul id="slide-out1" class="sidenav" style="background-color: #37474f;">
+  <ul id="slide-out1" class="sidenav" style="background-color: #1976d2; margin-left: 4px;">
   <?php
 
    $sql = "SELECT * FROM cadastro WHERE email='$email'";
@@ -118,7 +139,7 @@ $resultFoto = $dados['foto'];
 <h4 style="color: white; -webkit-text-stroke-width: 2.5px; -webkit-text-stroke-color: #000; font-size: 60px; font-family: arial; margin-left: 10px; margin-right: 10px;" class="z-depth-3">Conteúdos</h4>
 </center>
   <div class="row">
-     <div class="owl-carousel owl-theme owl-loaded">
+     <div class="owl-carousel owl-theme owl-loaded" id="carousel1">
         <div class="owl-stage-outer">
            <div class="owl-stage">
           <?php
@@ -132,27 +153,20 @@ $resultFoto = $dados['foto'];
           <div class="owl-item">
           <div class="col s12 m12">
           <div class="card small hoverable z-depth-3" style="background-color: white;">
-            <div style="background-color: #9fa8da;">
-            <span class="card-title">
-              <h5 style="text-align: center; "><?php echo $linha['titulo'] ?>
-              </h5>
-            </span>
+            <nav >
+              <div class="nav-wrapper #1976d2 blue darken-2">
+                <a class="brand-logo center">Informações</a>
+              </div>
+            </nav>
+            <div >
+              <p style="margin-left: 10px; font-family: arial; font-size: 18px;">Título: <?php echo $linha['titulo']?></p>
+              
             </div>
-
-            <br>
-            <br>
-            <div style="margin-left: 10px; height: 20px; font-size: 13px; text-align: justify; margin-right: 10px;"> 
-            <?php
-            $text = explode(" ", $linha['conteudo']);
-            for ($i=0; $i <= 30; $i++) { 
-              echo "$text[$i] ";
-            }
-           
-            ?>
-            <p style="color: red; font-size: 15px;">...Para continuar lendo o conteúdo, clique na opção abaixo.</p>
-             </div>
+            
+            <p style="color: red; font-size: 15px; margin-left: 4px">Para ler o conteúdo, clique na opção abaixo.</p>
+             
             <div class="card-action" style="background-color: #9fa8da;">
-             <center> <a href="conteudo.php?id=<?php echo $linha['id']; ?>" style="color: black; font-weight: bold;"> Acessar o conteúdo</a> </center>
+             <center> <a href="conteudo.php?id=<?php echo $linha['id']; ?>" target="_blank" style="color: black; font-weight: bold;"> Acessar o conteúdo</a> </center>
             
           </div>
           </div>
@@ -164,6 +178,10 @@ $resultFoto = $dados['foto'];
            
 
 ?>
+</div>
+</div>
+</div>
+</div>
 <?php
 }
 }

@@ -41,9 +41,7 @@ $resultFoto = $dados['foto'];
  <nav>
     <div class="nav-wrapper #1976d2 blue darken-2"> 
 
-      <ul id="nav-mobile" class="left hide-on-med-and-down">
-        <li><a href="#" data-target="slide-out" class="sidenav-trigger show-on-large"><i class="material-icons">menu</i></a></li>
-      </ul>
+        <a href="#" data-target="slide-out" class="sidenav-trigger show-on-large" style="margin-left: 4px;"><i class="material-icons">menu</i></a>
 
     </div>
   </nav>
@@ -52,21 +50,23 @@ $resultFoto = $dados['foto'];
    <img src="../design/logo.png">
    </center>
 
-  <ul id="slide-out" class="sidenav" style="background-color: #37474f;">
-    <li><div class="user-view">
+  <ul id="slide-out" class="sidenav" style="background-color: #1976d2;">
+    <li>
+      <div class="user-view">
       <img  class="circle" style="width: 200px; height: 200px;" src="../fotos/<?php echo $resultFoto; ?>">
       <span class="white-text name" style="font-family: arial; font-weight: bold; font-size: 20px;">
       <blockquote><?php $nome = $_SESSION['nome']; echo "$nome" ?> </blockquote>
       </span>
       <span class="white-text email" style="font-size: 17px;"><?php echo "$email" ?></span>
-      <a href="#" data-target="slide-out1" class="sidenav-trigger show-on-large"> Configurações </a>
-    </div></li>
+      <a href="#" data-target="slide-out1" class="sidenav-trigger show-on-large" style="color: white; font-size: 17px; font-family: arial;"> Configurações </a>
+     </div>
+     </li>
     <li>
     <a class="waves-effect" href="../actions/sair.php" style="color: white; font-size: 17px; font-family: arial;">Sair</a>
     </li>
   </ul>
 
-  <ul id="slide-out1" class="sidenav" style="background-color: #37474f;">
+  <ul id="slide-out1" class="sidenav" style="background-color: #1976d2;">
   <?php
 
    $sql = "SELECT * FROM cadastro WHERE email='$email'";
@@ -127,29 +127,21 @@ $resultFoto = $dados['foto'];
           <div class="owl-item">
           <div class="col s12 m12">
           <div class="card small hoverable z-depth-3" style="background-color: white;">
-            <div style="background-color: #9fa8da;">
-            <span class="card-title">
-              <h5 style="text-align: center;"><?php echo $linha['titulo'] ?>
-              </h5>
-            </span>
+            <nav >
+              <div class="nav-wrapper #1976d2 blue darken-2">
+                <a class="brand-logo center">Informações</a>
+              </div>
+            </nav>
+           
+            <div >
+              <p style="margin-left: 10px; font-family: arial; font-size: 18px;">Título: <?php echo $linha['titulo']?></p>
+              
             </div>
-
-            <br>
-            <br>
-           
-            <div style="margin-left: 10px; height: 20px; font-size: 12px; text-align: justify; margin-right: 10px; font-weight: bold;"> 
-            <?php
-            $text = explode(" ", $linha['conteudo']);
-            for ($i=0; $i <= 30; $i++) { 
-              echo "$text[$i] ";
-            }
-           
-            ?>
-            <p style="color: red;">...Para continuar lendo o conteúdo, clique na opção abaixo.</p>
-             </div>
+             
+            <p style="color: red; font-size: 15px; margin-left: 4px">Para ler o conteúdo, clique na opção abaixo.</p>
 
             <div class="card-action" style="background-color: #9fa8da;">
-             <center> <a href="conteudo.php?id=<?php echo $linha['id']; ?>" style="color: black; font-weight: bold;"> Acessar o conteúdo</a> </center>
+             <center> <a href="conteudo.php?id=<?php echo $linha['id']; ?>" target="_blank" style="color: black; font-weight: bold;"> Acessar o conteúdo</a> </center>
             
           </div>
           </div>
@@ -161,7 +153,11 @@ $resultFoto = $dados['foto'];
            
 
 ?>
-  
+
+</div>
+</div>
+</div>
+</div>
 
 <?php
 }
