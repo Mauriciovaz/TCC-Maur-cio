@@ -3,6 +3,7 @@
 <head>
 	<title>EducaContábil</title>
 	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
   <link rel="stylesheet" type="text/css" href="design/layout.css">
@@ -11,20 +12,6 @@
 <body>
 
 
-<nav>
-    <div class="nav-wrapper #1976d2 blue darken-2">
-      <a class="brand-logo center"></a>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li>
-          
-        </li>
-        <li>
-         
-        </li>
-      </ul>
-    </div>
-  </nav>
-<br>
 <div class="" align="center">
 <svg width="280" height="210" viewBox="0 0 796 575" fill="none" xmlns="http://www.w3.org/2000/svg" style="filter: drop-shadow(1px 1px 0px #111) drop-shadow(-1px 1px 0px #111) drop-shadow(1px -1px 0px #111) drop-shadow(-1px -1px 0px #111);
 }">
@@ -105,12 +92,12 @@
           		<p class="formulario">E-mail: 
               <br>
               <br>
-              <input type="email" name="email" id="formularioInterno" required minlength="8" maxlength="30" ></p>
+              <input type="email" name="email" id="formularioInterno" required minlength="8" maxlength="50" ></p>
           		<br>
           		<p class="formulario">Senha: 
               <br>
               <br>
-              <input type="password" name="senha" id="formularioInterno" required minlength="8" maxlength="12"></p>
+              <input type="password" name="senha" id="formularioInterno" required minlength="8" maxlength="30"></p>
           		<br>
           		<button class="btn waves-effect waves-light #1976d2 blue darken-2" type="submit" name="entrar">Entrar
                 <i class="material-icons right">chevron_right</i>
@@ -130,6 +117,7 @@
  
   </div>
 
+
   <header>
     <svg class="waves" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
 
@@ -140,6 +128,7 @@
     <path class="" fill="rgb(244,164,96)" fill-opacity="1" d="M0,0L17.1,10.7C34.3,21,69,43,103,48C137.1,53,171,43,206,58.7C240,75,274,117,309,160C342.9,203,377,245,411,240C445.7,235,480,181,514,154.7C548.6,128,583,128,617,117.3C651.4,107,686,85,720,80C754.3,75,789,85,823,122.7C857.1,160,891,224,926,213.3C960,203,994,117,1029,90.7C1062.9,64,1097,96,1131,96C1165.7,96,1200,64,1234,53.3C1268.6,43,1303,53,1337,96C1371.4,139,1406,213,1423,250.7L1440,288L1440,320L1422.9,320C1405.7,320,1371,320,1337,320C1302.9,320,1269,320,1234,320C1200,320,1166,320,1131,320C1097.1,320,1063,320,1029,320C994.3,320,960,320,926,320C891.4,320,857,320,823,320C788.6,320,754,320,720,320C685.7,320,651,320,617,320C582.9,320,549,320,514,320C480,320,446,320,411,320C377.1,320,343,320,309,320C274.3,320,240,320,206,320C171.4,320,137,320,103,320C68.6,320,34,320,17,320L0,320Z"></path>
 </svg>
   </header>
+
 </div>
 <script type="text/javascript" src="js/materialize.min.js"></script>
 
@@ -148,10 +137,7 @@
   header{
     position: relative;
     margin: 0px;
-    
-    
-  
-  width: 100%;
+    width: 100%;
     }
 
     .waves{

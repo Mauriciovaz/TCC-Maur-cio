@@ -3,6 +3,7 @@
 <head>
 	<title>Cadastro</title>
 	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <script type="text/javascript" src="js/jquery-3.4.1.js"> </script>
   <script type="text/javascript" src="js/materialize.min.js"></script>
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -12,10 +13,7 @@
 <body>
 <nav>
     <div class="nav-wrapper #1976d2 blue darken-2">
-      <a class="brand-logo center"></a>
-      <ul id="nav-mobile" class="left hide-on-med-and-down">
-      <li><a href="index.php"> Voltar</a></li>
-      </ul>
+      <a href="index.php" style="margin-left: 4px;"> Voltar</a>
     </div>
   </nav>
 <br><br>
@@ -34,7 +32,7 @@
               <p class="formulario">E-mail: 
               <br>
               <br>
-              <input type="text" name="email" id="formularioInterno" required minlength="1" maxlength="100"></p>
+              <input type="email" name="email" id="formularioInterno" required minlength="1" maxlength="100"></p>
               <br>
           		<p class="formulario">Nome de Usuário: 
               <br>
@@ -50,7 +48,7 @@
               <div class="file-field input-field">
               <div class="btn">
               <span>Foto de perfil</span>
-              <input type="file" name="foto">
+              <input type="file" name="foto" required>
               </div>
               <div class="file-path-wrapper">
               <input class="file-path validate" type="text">

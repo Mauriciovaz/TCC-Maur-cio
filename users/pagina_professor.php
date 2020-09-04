@@ -3,16 +3,45 @@
 <head>
 	<title>Página Professor</title>
 	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 	<script type="text/javascript" src="../js/jquery-3.4.1.js"> </script>
   <script type="text/javascript" src="../js/materialize.min.js"></script>
 	 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   	<link type="text/css" rel="stylesheet" href="../css/materialize.min.css"  media="screen,projection"/>
-    <link rel="stylesheet" type="text/css" href="../design/layout.css">
+
     <link rel="stylesheet" href="../owlcarousel/dist/assets/owl.carousel.min.css">
     <link rel="stylesheet" href="../owlcarousel/dist/assets/owl.theme.default.min.css">
     <script src="../js/jquery.mask.min"></script>
     <script src="../owlcarousel/dist/owl.carousel.min.js"></script>
+    <style type="text/css">
+    html{
+      background-color: #7FFFD4;
+    }
+    nav{
+      background-color: #1976d2;
+    }
+    html[dark]{
+      background-color: #808080;
+    }
+    #navbar[dark]{
+      background-color: black;
+    }
+    #navbar1[dark]{
+      background-color: black;
+    }
+    #card[dark]{
+      background-color: #696969;
+      color: white;
+    }
+    #acessar_conteudo{
+      background-color: #1976d2;
+    }
+    #acessar_conteudo[dark]{
+      background-color: black;
+    }
+  </style>
 </head>
+
 <body>
 <script type="text/javascript">
   $(document).ready(function(){
@@ -40,7 +69,76 @@
 }
   });
 });
+
+// Background com tema escuro:
+document.addEventListener('DOMContentLoaded', () => {
+    const html = document.querySelector('html')
+    const inputDarkMode = document.getElementById('input-dark-mode')
+        
+    inputDarkMode.addEventListener('change', () => {
+        if(inputDarkMode.checked){
+            html.setAttribute("dark", "true")
+        }else{
+            html.removeAttribute("dark")
+        }
+    })
+})
+
+// Navbar com tema escuro: 
+document.addEventListener('DOMContentLoaded', () => {
+    const navbar = document.getElementById('navbar')
+    const inputDarkMode = document.getElementById('input-dark-mode')
+        
+    inputDarkMode.addEventListener('change', () => {
+        if(inputDarkMode.checked){
+            navbar.setAttribute("dark", "true")
+        }else{
+            navbar.removeAttribute("dark")
+        }
+    })
+})
+
+document.addEventListener('DOMContentLoaded', () => {
+    const navbar1 = document.getElementById('navbar1')
+    const inputDarkMode = document.getElementById('input-dark-mode')
+        
+    inputDarkMode.addEventListener('change', () => {
+        if(inputDarkMode.checked){
+            navbar1.setAttribute("dark", "true")
+        }else{
+            navbar1.removeAttribute("dark")
+        }
+    })
+})
+// Card com tema escuro:
+document.addEventListener('DOMContentLoaded', () => {
+    const card = document.getElementById('card')
+    const inputDarkMode = document.getElementById('input-dark-mode')
+        
+    inputDarkMode.addEventListener('change', () => {
+        if(inputDarkMode.checked){
+            card.setAttribute("dark", "true")
+        }else{
+            card.removeAttribute("dark")
+        }
+    })
+})
+
+// Botão de acessar conteúdo com tema escuro: 
+document.addEventListener('DOMContentLoaded', () => {
+    const acessar_conteudo = document.getElementById('acessar_conteudo')
+    const inputDarkMode = document.getElementById('input-dark-mode')
+        
+    inputDarkMode.addEventListener('change', () => {
+        if(inputDarkMode.checked){
+            acessar_conteudo.setAttribute("dark", "true")
+        }else{
+            acessar_conteudo.removeAttribute("dark")
+        }
+    })
+})
 </script>
+
 <?php
 
 session_start();
@@ -57,24 +155,15 @@ while ($dados = mysqli_fetch_array($foto)) {
 $resultFoto = $dados['foto'];
 ?>
  <nav>
-    <div class="nav-wrapper #1976d2 blue darken-2"> 
+    <div class="nav-wrapper" id="navbar"> 
 
-      <ul id="nav-mobile" class="left hide-on-med-and-down">
-      </ul>
-      <ul class="right hide-on-med-and-down">
-        
-        <li></li>
-      </ul>
       <a href="#" data-target="slide-out" class="sidenav-trigger show-on-large"><i class="material-icons">menu</i></a>
-      <div class="right" style="margin-right: 4px;">
-      <a href="materia.php" class="btn">Adicionar conteúdo</a>
-      <a href="lista_conteudo.php" class="btn"> Lista de conteúdo</a>
-      </div>
+      
     </div>
   </nav>
-
+  <br> 
    <center>
-   <img src="../design/logo.png">
+   <img src="../design/logo.png" style="width: 50%; height: auto;">
    </center>
 
   <ul id="slide-out" class="sidenav" style="background-color: #1976d2;">
@@ -84,7 +173,19 @@ $resultFoto = $dados['foto'];
       <blockquote><?php $nome = $_SESSION['nome']; echo "$nome" ?> </blockquote>
       </span>
       <span class="white-text email" style="font-size: 17px;"><?php echo "$email" ?></span>
-      <a href="#" data-target="slide-out1" class="sidenav-trigger show-on-large" style="color: white; font-size: 17px; font-family: arial;"> Configurações </a>
+      <a href="#" data-target="slide-out1" class="sidenav-trigger show-on-large" style="color: white; font-size: 17px; font-family: arial;"> Configurações </a> <br>
+      <a href="materia.php" style="color: white; font-size: 17px; font-family: arial;"> Adicionar conteúdo</a><br>
+       <a href="lista_conteudo.php" style="color: white; font-size: 17px; font-family: arial;"> Lista de conteúdo</a> <br>
+       <div style="color: white;">
+      Ativar o modo escuro:
+      <div class="switch">
+      <label for="input-dark-mode">
+        <a class="button"></a>
+        <input type="checkbox" id="input-dark-mode">
+        <span class="lever"></span>
+      </label>
+      </div>
+      </div>
     </div></li>
     <li>
     <a class="waves-effect" href="../actions/sair.php" style="color: white; font-size: 17px; font-family: arial;">Sair</a>
@@ -139,6 +240,7 @@ $resultFoto = $dados['foto'];
 <h4 style="color: white; -webkit-text-stroke-width: 2.5px; -webkit-text-stroke-color: #000; font-size: 60px; font-family: arial; margin-left: 10px; margin-right: 10px;" class="z-depth-3">Conteúdos</h4>
 </center>
   <div class="row">
+
      <div class="owl-carousel owl-theme owl-loaded" id="carousel1">
         <div class="owl-stage-outer">
            <div class="owl-stage">
@@ -152,9 +254,9 @@ $resultFoto = $dados['foto'];
           ?>
           <div class="owl-item">
           <div class="col s12 m12">
-          <div class="card small hoverable z-depth-3" style="background-color: white;">
+          <div class="card small hoverable z-depth-3" id="card">
             <nav >
-              <div class="nav-wrapper #1976d2 blue darken-2">
+              <div class="nav-wrapper" id="navbar1">
                 <a class="brand-logo center">Informações</a>
               </div>
             </nav>
@@ -163,12 +265,11 @@ $resultFoto = $dados['foto'];
               
             </div>
             
-            <p style="color: red; font-size: 15px; margin-left: 4px">Para ler o conteúdo, clique na opção abaixo.</p>
+            <p style="font-size: 15px; margin-left: 10px">Para ler o conteúdo, clique na opção abaixo.</p>
              
-            <div class="card-action" style="background-color: #9fa8da;">
-             <center> <a href="conteudo.php?id=<?php echo $linha['id']; ?>" target="_blank" style="color: black; font-weight: bold;"> Acessar o conteúdo</a> </center>
-            
-          </div>
+              <div class="card-action" id="acessar_conteudo">
+               <center> <a href="conteudo.php?id=<?php echo $linha['id']; ?>" target="_blank" style="font-weight: bold;"> Acessar o conteúdo</a> </center>
+              </div>
           </div>
           </div>
         </div>
@@ -181,6 +282,7 @@ $resultFoto = $dados['foto'];
 </div>
 </div>
 </div>
+
 </div>
 <?php
 }

@@ -3,6 +3,7 @@
 <head>
   <title>Adicionar conteúdo</title>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <script type="text/javascript" src="../js/jquery-3.4.1.js"> </script>
     <script type="text/javascript" src="../js/materialize.min.js"></script>
    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">

@@ -3,6 +3,7 @@
 <head>
 	<title>Adicionar conteúdo</title>
 	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 	<script type="text/javascript" src="../js/jquery-3.4.1.js"> </script>
     <script type="text/javascript" src="../js/materialize.min.js"></script>
 	 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -21,7 +22,7 @@
   <br>
 <div class="row">
     <div class="col s12 m8 push-m2 z-depth-3">
-      <div class="card" style="background-color: rgb(244,164,96);">
+      <div class="card" style="background-color: #808080;">
         
         <div class="card-content white-text">
         
