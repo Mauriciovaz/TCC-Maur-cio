@@ -137,6 +137,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     })
 })
+
+
 </script>
 
 <?php
@@ -176,6 +178,7 @@ $resultFoto = $dados['foto'];
       <a href="#" data-target="slide-out1" class="sidenav-trigger show-on-large" style="color: white; font-size: 17px; font-family: arial;"> Configurações </a> <br>
       <a href="materia.php" style="color: white; font-size: 17px; font-family: arial;"> Adicionar conteúdo</a><br>
        <a href="lista_conteudo.php" style="color: white; font-size: 17px; font-family: arial;"> Lista de conteúdo</a> <br>
+       <a href="lista_alunos.php" style="color: white; font-size: 17px; font-family: arial;">Lista de alunos</a> <br>
        <div style="color: white;">
       Ativar o modo escuro:
       <div class="switch">
@@ -252,8 +255,8 @@ $resultFoto = $dados['foto'];
           if(mysqli_num_rows($resultado) > 0){
           while ($linha = mysqli_fetch_array($resultado2)) {
           ?>
-          <div class="owl-item">
-          <div class="col s12 m12">
+          <div class="owl-item" >
+          <div class="col s12 m12" >
           <div class="card small hoverable z-depth-3" id="card">
             <nav >
               <div class="nav-wrapper" id="navbar1">

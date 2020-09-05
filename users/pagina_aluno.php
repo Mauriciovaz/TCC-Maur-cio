@@ -217,7 +217,7 @@ $resultFoto = $dados['foto'];
 
    ?>
   </ul>
-  
+
   <center>
 <h4 style="color: white; -webkit-text-stroke-width: 2.5px; -webkit-text-stroke-color: #000; font-size: 60px; font-family: arial; margin-left: 10px; margin-right: 10px;" class="z-depth-3">Conteúdos</h4>
 </center>
