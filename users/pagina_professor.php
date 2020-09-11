@@ -177,6 +177,7 @@ $resultFoto = $dados['foto'];
       <span class="white-text email" style="font-size: 17px;"><?php echo "$email" ?></span>
       <a href="#" data-target="slide-out1" class="sidenav-trigger show-on-large" style="color: white; font-size: 17px; font-family: arial;"> Configurações </a> <br>
       <a href="materia.php" style="color: white; font-size: 17px; font-family: arial;"> Adicionar conteúdo</a><br>
+      <a href="adicionar_atividade.php" style="color: white; font-size: 17px; font-family: arial;" target="_blank"> Adicionar atividade</a><br>
        <a href="lista_conteudo.php" style="color: white; font-size: 17px; font-family: arial;"> Lista de conteúdo</a> <br>
        <a href="lista_alunos.php" style="color: white; font-size: 17px; font-family: arial;">Lista de alunos</a> <br>
        <div style="color: white;">
@@ -260,7 +261,7 @@ $resultFoto = $dados['foto'];
           <div class="card small hoverable z-depth-3" id="card">
             <nav >
               <div class="nav-wrapper" id="navbar1">
-                <a class="brand-logo center">Informações</a>
+                <a class="brand-logo center">Conteúdo</a>
               </div>
             </nav>
             <div >
@@ -287,6 +288,56 @@ $resultFoto = $dados['foto'];
 </div>
 
 </div>
+
+<center>
+<h4 style="color: white; -webkit-text-stroke-width: 2.5px; -webkit-text-stroke-color: #000; font-size: 60px; font-family: arial; margin-left: 10px; margin-right: 10px;" class="z-depth-3">Atividades</h4>
+</center>
+  <div class="row">
+
+     <div class="owl-carousel owl-theme owl-loaded" id="carousel1">
+        <div class="owl-stage-outer">
+           <div class="owl-stage">
+          <?php
+          require "../bd.php";
+          $sql2 = "SELECT * FROM atividade";
+          $resultado2 = mysqli_query($conexao,$sql2);
+          
+          if(mysqli_num_rows($resultado) > 0){
+          while ($linha = mysqli_fetch_array($resultado2)) {
+          ?>
+          <div class="owl-item" >
+          <div class="col s12 m12" >
+          <div class="card small hoverable z-depth-3" id="card">
+            <nav >
+              <div class="nav-wrapper" id="navbar1">
+                <a class="brand-logo center">Atividade</a>
+              </div>
+            </nav>
+            <div >
+              <p style="margin-left: 10px; font-family: arial; font-size: 18px;">Atividade sobre: <?php echo $linha['conteudo']?></p>
+              
+            </div>
+            
+            <p style="font-size: 15px; margin-left: 10px">Para realizar a atividade, clique na opção abaixo.</p>
+             
+              <div class="card-action" id="acessar_conteudo">
+               <center> <a href="atividade.php?id=<?php echo $linha['id']; ?>" target="_blank" style="font-weight: bold;"> Acessar a atividade</a> </center>
+              </div>
+          </div>
+          </div>
+        </div>
+<?php
+          }
+          }
+           
+
+?>
+</div>
+</div>
+</div>
+
+</div>
+
 <?php
 }
 }
