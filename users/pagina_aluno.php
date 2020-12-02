@@ -51,6 +51,10 @@
   $(".owl-carousel").owlCarousel();
 });
 
+  $(document).ready(function(){
+    $('.modal').modal();
+  });
+
 // Background com tema escuro:
 document.addEventListener('DOMContentLoaded', () => {
     const html = document.querySelector('html')
@@ -206,8 +210,6 @@ $resultFoto = $dados['foto'];
      <a class="btn #ff1744 red accent-3" href="pagina_aluno.php" style="color: white;">Voltar</a>
      <button type="submit" class="btn #4caf50 green" style="color: white;">Salvar</button>
    </div>
-      
-    
    </form>
    
     <?php
@@ -216,7 +218,20 @@ $resultFoto = $dados['foto'];
    
 
    ?>
+   <br>
+   <br>
+   <a data-target="modal1" class="btn modal-trigger" style="text-decoration: none;">Excluir minha conta</a>
+
   </ul>
+<div id="modal1" class="modal">
+    <div class="modal-content">
+      <h4>Você tem certeza?</h4>
+    </div>
+    <div class="modal-footer">
+      <a href="../actions/aluno/info/excluirConta.php" class="modal-close waves-effect waves-green btn-flat" style="background-color: green; color: white;">Sim</a>
+      <a href="pagina_aluno.php" class="modal-close waves-effect waves-green btn-flat" style="background-color: red; color: white;">Não</a>
+    </div>
+  </div>
 
   <center>
 <h4 style="color: white; -webkit-text-stroke-width: 2.5px; -webkit-text-stroke-color: #000; font-size: 60px; font-family: arial; margin-left: 10px; margin-right: 10px;" class="z-depth-3">Conteúdos</h4>

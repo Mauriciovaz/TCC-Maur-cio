@@ -9,4 +9,7 @@ CKEDITOR.editorConfig = function( config )
                     config.language = 'pt-br';
                     config.uiColor = '#ffffff';
                     config.contentsCss = 'content2.css';
-};
+
+                    config.extraPlugins = 'table';
+
+};                 

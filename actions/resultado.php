@@ -22,6 +22,14 @@ $correta1 = $_POST['correta1'];
 $correta2 = $_POST['correta2'];
 $correta3 = $_POST['correta3'];
 
+$ativ1 = $_POST['ativ1'];
+$ativ2 = $_POST['ativ2'];
+$ativ3 = $_POST['ativ3'];
+
+$feed1 = $_POST['feed1'];
+$feed2 = $_POST['feed2'];
+$feed3 = $_POST['feed3'];
+
 $pontuacao = 0;
 $porcentagem = 0;
 
@@ -53,53 +61,73 @@ $porcentagem = round($porcentagem, 0);
         	<div style="color: green; font-weight: bold; font-family: arial;">
 	           <?php
 	           if ($q1 == $correta1) {
-	             echo "Questão 1 // Correta";
-	           }
+	             echo "$ativ1 // Correta <br>";
+	             
+                }
 	           ?>
 	           
 	        </div>
+
 	        <div style="color: red; font-weight: bold; font-family: arial;">
 	           <?php
 	           if ($q1 != $correta1) {
-	             echo "Questão 1 // Errada";
-	           }
+	             echo "$ativ1 // Errada <br>";
+	             
+              }
 	           ?>
 	           
 	        </div>
+	         <?php
+              echo "Feedback da questão 1: $feed1";
+            ?>
 	        <br>
 	        <div style="color: green; font-weight: bold; font-family: arial;">
 	           <?php
 	           if ($q2 == $correta2) {
-	             echo "Questão 2 // Correta";
-	           }
+	             echo "$ativ2 // Correta <br>";
+	         
+                }
+	           
 	           ?>
 	           
 	        </div>
+	        
 	        <div style="color: red; font-weight: bold; font-family: arial;">
 	           <?php
 	           if ($q2 != $correta2) {
-	             echo "Questão 2 // Errada";
-	           }
+	             echo "$ativ2 // Errada <br>";
+	             
+              }
+	           
 	           ?>
 	           
 	        </div>
+	         <?php
+              echo "Feedback da questão 2: $feed2";
+            ?>
 	        <br>
 	        <div style="color: green; font-weight: bold; font-family: arial;">
 	           <?php
 	           if ($q3 == $correta3) {
-	             echo "Questão 3 // Correta";
-	           }
+	             echo "$ativ3 // Correta <br>";
+	             
+              }
 	           ?>
 	           
 	        </div>
+	       
 	        <div style="color: red; font-weight: bold; font-family: arial;">
 	           <?php
 	           if ($q3 != $correta3) {
-	             echo "Questão 3 // Errada";
-	           }
+	             echo "$ativ3 // Errada <br>";
+	             
+              }
 	           ?>
 
 	        </div>
+	         <?php
+              echo "Feedback da questão 3: $feed3";
+            ?>
            <br>
            <br>
            <div style="color: black; font-weight: bold; font-family: arial;">

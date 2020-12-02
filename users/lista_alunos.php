@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title> Lista de conteúdo </title>
+	<title> Lista de alunos </title>
 	<meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 	<script type="text/javascript" src="../js/jquery-3.4.1.js"> </script>
@@ -34,7 +34,6 @@
 	       echo '<tr class="#00e5ff cyan accent-3"> 
          <th>Nome</th> 
          <th>E-mail</th> 
-         <th>Excluir Aluno(a)</th>
          </tr>';
            $sql = "SELECT * FROM `cadastro` WHERE `tipo`= 'aluno'";
            $resultado = mysqli_query($conexao, $sql);
@@ -47,7 +46,6 @@
 		   echo "<tr>";
 		   echo "<td>" . $nome . "</td>";
        echo "<td>" . $email . "</td>";
-		   echo "<td><a href='excluir_aluno.php?id=$id'> <img src='deletar.png' width='40px'> </a></td>";
 		   echo "</tr>";
            }
 

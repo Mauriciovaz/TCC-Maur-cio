@@ -37,7 +37,7 @@
           <br>
           
           <span style="font-weight: bold;">Questão 1: </span> <br><br>
-          <textarea id="atividade" name="q1" required> <label>Máximo 600 caracteres</label> </textarea>
+          <textarea id="atividade" name="q1" required></textarea>
           <br>
 
           <p>Opção 1: </p> <input type="text" name="op1q1" required>
@@ -45,6 +45,10 @@
           <p>Opção 3: </p> <input type="text" name="op3q1" required>
           <p>Opção 4: </p> <input type="text" name="op4q1" required>
           <p>Opção 5: </p> <input type="text" name="op5q1" required>
+
+          <br>
+          <span style="font-weight: bold;">Feedback dessa questão: </span> <br><br>
+          <textarea id="feed1" name="feed1" required></textarea>
         </div>
       </div>
     </div>
@@ -56,7 +60,7 @@
         <div class="card-content black-text">
 
           <span style="font-weight: bold;">Questão 2: </span> <br><br>
-          <textarea id="atividade2" name="q2" required> <label>Máximo 600 caracteres</label> </textarea>
+          <textarea id="atividade2" name="q2" required></textarea>
           <br>
 
           <p>Opção 1: </p> <input type="text" name="op1q2" required>
@@ -64,6 +68,10 @@
           <p>Opção 3: </p> <input type="text" name="op3q2" required>
           <p>Opção 4: </p> <input type="text" name="op4q2" required>
           <p>Opção 5: </p> <input type="text" name="op5q2" required>
+
+          <br>
+          <span style="font-weight: bold;">Feedback dessa questão: </span> <br><br>
+          <textarea id="feed2" name="feed2" required></textarea>
         </div>
       </div>
     </div>
@@ -75,7 +83,7 @@
         <div class="card-content black-text">
 
           <span style="font-weight: bold;">Questão 3: </span> <br><br>
-          <textarea id="atividade3" name="q3" required> <label>Máximo 600 caracteres</label> </textarea>
+          <textarea id="atividade3" name="q3" required> </textarea>
           <br>
 
           <p>Opção 1: </p> <input type="text" name="op1q3" required> 
@@ -83,6 +91,10 @@
           <p>Opção 3: </p> <input type="text" name="op3q3" required>
           <p>Opção 4: </p> <input type="text" name="op4q3" required>
           <p>Opção 5: </p> <input type="text" name="op5q3" required>
+
+          <br>
+          <span style="font-weight: bold;">Feedback dessa questão: </span> <br><br>
+          <textarea id="feed3" name="feed3" required></textarea>
           
           <div class="col s3 m6">
           <select name="c1" required>
@@ -138,7 +150,11 @@
 <script>
      CKEDITOR.replace('atividade');  
      CKEDITOR.replace('atividade2');
-     CKEDITOR.replace('atividade3');      
+     CKEDITOR.replace('atividade3');
+
+     CKEDITOR.replace('feed1');
+     CKEDITOR.replace('feed2');
+     CKEDITOR.replace('feed3');   
 
      $(document).ready(function(){
     $('select').formSelect();

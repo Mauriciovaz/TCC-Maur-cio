@@ -129,9 +129,17 @@
         
         <br>
         <br>
+        <input type="hidden" name="ativ1" value="<?php echo $linha['questao1'] ?>">
+        <input type="hidden" name="ativ2" value="<?php echo $linha['questao2'] ?>">
+        <input type="hidden" name="ativ3" value="<?php echo $linha['questao3'] ?>">
+
         <input type="hidden" name="correta1" value="<?php echo $linha['correta1'] ?>">
         <input type="hidden" name="correta2" value="<?php echo $linha['correta2'] ?>">
         <input type="hidden" name="correta3" value="<?php echo $linha['correta3'] ?>">
+
+        <input type="hidden" name="feed1" value="<?php echo $linha['feed1'] ?>">
+        <input type="hidden" name="feed2" value="<?php echo $linha['feed2'] ?>">
+        <input type="hidden" name="feed3" value="<?php echo $linha['feed3'] ?>">
 
         <center>
         <input type="submit" value="Enviar" class="btn">

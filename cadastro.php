@@ -48,7 +48,7 @@
               <div class="file-field input-field">
               <div class="btn">
               <span>Foto de perfil</span>
-              <input type="file" name="foto" required>
+              <input type="file" name="foto">
               </div>
               <div class="file-path-wrapper">
               <input class="file-path validate" type="text">

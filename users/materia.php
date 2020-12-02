@@ -24,7 +24,7 @@
       background-color: black;
       }
       #card{
-        background-color: rgb(244,164,96);
+        background-color: rgb(255,255,255);
         color: rgb(0,0,0);
       }
       #card[dark]{
@@ -112,7 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
                </div>
                <script src="../ckeditor/ckeditor.js"> </script>
               <script>
-                CKEDITOR.replace('conteudo');
+               CKEDITOR.replace('conteudo');
                 
                </script>
           <br>
