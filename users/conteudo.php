@@ -115,6 +115,17 @@ document.addEventListener('DOMContentLoaded', () => {
         <div style="font-size: 15px;">
         	<?php echo $linha['conteudo']; ?>
         </div>
+        <br>
+        <div align="center">
+          <?php
+          if ($linha['foto'] != 'empty') {
+          ?>
+          <img class="materialboxed" width="500" height="450" src="fotos/<?php echo $linha['foto']; ?>">
+          <?php
+          }
+          ?>
+        </div>
+
         </div>
       </div>
     </div>
@@ -124,5 +135,12 @@ document.addEventListener('DOMContentLoaded', () => {
 }
 }
 ?>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+    $('.materialboxed').materialbox();
+  });
+</script>
+
 </body>
 </html>

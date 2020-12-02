@@ -92,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="card-content" id="card">
         
           <br>
-          <form action="../actions/salvar_materia.php" method="POST">
+          <form action="../actions/salvar_materia.php" method="POST" enctype="multipart/form-data">
           <fieldset>
             <legend class="center" style="font-size: 25px; font-weight: bold;">Adicionar Conteúdo</legend>
           <div style="margin-left: 10px; font-size: 20px; font-family: arial; font-weight: bold;">Título: 
@@ -116,6 +116,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                </script>
           <br>
+
+          <div class="file-field input-field">
+      <div class="btn">
+        <span>Foto</span>
+        <input type="file" name="arquivo">
+      </div>
+      <div class="file-path-wrapper">
+        <input class="file-path validate" type="text" style="max-width: 45%">
+      </div>
+    </div>
 
           <p style="margin-left: 8px;">Ativar o modo escuro:</p>
           <div class="switch">
