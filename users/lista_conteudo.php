@@ -31,16 +31,18 @@
            require "../bd.php";
 
            echo '<table id="conteudos" class="highlight #e1f5fe light-blue lighten-5">';
-	       echo '<tr class="#00e5ff cyan accent-3"> <th>Titulo</th> <th>Apagar</th> <th>Atualizar</th></tr>';
-           $sql = "SELECT * FROM materia";
+	       echo '<tr class="#00e5ff cyan accent-3"> <th>Titulo</th> <th>Conteúdo</th> <th>Apagar</th> <th>Atualizar</th></tr>';
+           $sql = "SELECT conteudo.nome, materia.id, materia.conteudo FROM materia INNER JOIN conteudo WHERE conteudo.id = materia.idconteudo";
            $resultado = mysqli_query($conexao, $sql);
 
            while ($linha = mysqli_fetch_array($resultado)) {
            $id = $linha['id'];
-		   $titulo = $linha['titulo'];
+		   $titulo = $linha['nome'];
+       $conteudo = $linha['conteudo'];
 
 		   echo "<tr>";
 		   echo "<td>" . $titulo . "</td>";
+       echo "<td>" . $conteudo . "</td>";
 		   echo "<td><a href='../actions/excluir_conteudo.php?id=$id'> <img src='deletar.png' width='40px'> </a></td>";
 		    echo "<td><a href='form_atualizar.php?id=$id'> <img src='atualizar.png' width='35px'> </a></td>";
 		   echo "</tr>";

@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
  require "../bd.php";
  $id = $_GET['id'];
- $sql = "SELECT * FROM materia WHERE id = '$id'";
+ $sql = "SELECT conteudo.nome, materia.conteudo, materia.foto FROM materia, conteudo WHERE materia.id = '$id' AND conteudo.id = materia.idconteudo";
  $resultado = mysqli_query($conexao, $sql);
  
   if(mysqli_num_rows($resultado) > 0){
@@ -108,7 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
           </label>
           </div>
         <center>
-          <span class="card-title" style="font-size: 30px; font-weight: bold;"> <?php echo $linha['titulo']; ?> </span>
+          <span class="card-title" style="font-size: 30px; font-weight: bold;"> <?php echo $linha['nome']; ?> </span>
         </center>
        
 

@@ -4,7 +4,7 @@ include("../bd.php");
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-	<title>Adicionar atividade</title>
+	<title>Editar atividade</title>
 	<meta charset="utf-8">
   	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<script type="text/javascript" src="../js/jquery-3.4.1.js"> </script>
@@ -25,7 +25,17 @@ include("../bd.php");
 
 <br>
 
-<form action="../actions/salvar_atividade.php" method="POST" enctype="multipart/form-data">
+<?php
+$id = $_GET['id'];
+
+$sql1 = "SELECT * FROM atividade WHERE id = $id";
+$resultado1 = mysqli_query($conexao, $sql1);
+
+$linha = mysqli_fetch_array($resultado1);
+
+?>
+
+<form action="update.php" method="POST" enctype="multipart/form-data">
 <div class="row">
     <div class="col s12 m6 push-m3">
       <div class="card white">
@@ -66,20 +76,20 @@ include("../bd.php");
           
           <p style="font-weight: bold; margin-left: 2px;">
             Conteúdo da atividade: <br>
-          <textarea id="atividade" name="questao" required></textarea>
+          <textarea id="atividade" name="questao" required><?php echo $linha['questao']; ?></textarea>
           <br></p>
 
-          <p>Opção 1: </p> <input type="text" name="op1" required>
-          <p>Opção 2: </p> <input type="text" name="op2" required>
-          <p>Opção 3: </p> <input type="text" name="op3" required>
-          <p>Opção 4: </p> <input type="text" name="op4" required>
-          <p>Opção 5: </p> <input type="text" name="op5" required>
+          <p>Opção 1: </p> <input type="text" value="<?php echo $linha['op1']; ?>" name="op1" required>
+          <p>Opção 2: </p> <input type="text" value="<?php echo $linha['op2']; ?>" name="op2" required>
+          <p>Opção 3: </p> <input type="text" value="<?php echo $linha['op3']; ?>" name="op3" required>
+          <p>Opção 4: </p> <input type="text" value="<?php echo $linha['op4']; ?>" name="op4" required>
+          <p>Opção 5: </p> <input type="text" value="<?php echo $linha['op5']; ?>" name="op5" required>
 
           <br>
 
           
           <span style="font-weight: bold;">Feedback dessa questão: </span> <br><br>
-          <textarea id="feed1" name="feed" required></textarea>
+          <textarea id="feed1" name="feed" required><?php echo $linha['feed']; ?></textarea>
 
           <div class="col s3 m6">
             Selecione a opção correta: <br>
@@ -95,6 +105,8 @@ include("../bd.php");
           <br>
           <br>
           <br>
+
+          <input type="hidden" name="id" value="<?php echo $id; ?>">
 
           <div class="file-field input-field">
       <div class="btn">

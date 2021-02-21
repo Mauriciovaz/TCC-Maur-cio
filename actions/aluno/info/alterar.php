@@ -9,7 +9,7 @@ $email = $_SESSION['email'];
 $nome = $_POST['nome'];
 $senha = $_POST['senha'];
 $foto1 = $_POST['foto1'];
-$sql = "SELECT * FROM cadastro WHERE email='$email'";
+$sql = "SELECT * FROM usuarios WHERE email='$email'";
    $resultado = mysqli_query($conexao,$sql);
    if (mysqli_num_rows($resultado) > 0) {
      while ($linha = mysqli_fetch_array($resultado)) {
@@ -29,7 +29,7 @@ $sql = "SELECT * FROM cadastro WHERE email='$email'";
     }
 }
 
-    $sql = " UPDATE cadastro SET nome='$nome', senha='$senha', foto='$novo_nome' WHERE email='$email' ";
+    $sql = " UPDATE usuarios SET nome='$nome', senha='$senha', foto='$novo_nome' WHERE email='$email' ";
 
 $resultado = mysqli_query($conexao,$sql);
 

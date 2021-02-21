@@ -7,7 +7,7 @@ $email = $_SESSION['email'];
 
 require "bd.php";
 
-$sql = "DELETE FROM cadastro WHERE email='$email'";
+$sql = "DELETE FROM usuarios WHERE email='$email'";
 $resultado = mysqli_query($conexao,$sql);
 
 if ($resultado) {

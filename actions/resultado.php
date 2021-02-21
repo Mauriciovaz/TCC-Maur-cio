@@ -15,131 +15,49 @@
 <?php
 
 $q1 = $_POST['q1'];
-$q2 = $_POST['q2'];
-$q3 = $_POST['q3'];
 
-$correta1 = $_POST['correta1'];
-$correta2 = $_POST['correta2'];
-$correta3 = $_POST['correta3'];
 
-$ativ1 = $_POST['ativ1'];
-$ativ2 = $_POST['ativ2'];
-$ativ3 = $_POST['ativ3'];
+$correta = $_POST['correta'];
 
-$feed1 = $_POST['feed1'];
-$feed2 = $_POST['feed2'];
-$feed3 = $_POST['feed3'];
 
-$pontuacao = 0;
-$porcentagem = 0;
+$feed= $_POST['feed'];
 
-if ($q1 == $correta1) {
-	$pontuacao = $pontuacao + 10;
+
+if ($q1 == $correta) {
+?>
+<!-- Modal Structure -->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <h4>Parabéns! você acertou essa questão!</h4>
+      <p>Feedback dessa questão: <br> <?php echo "$feed"; ?> </p>
+    </div>
+    <div class="modal-footer">
+      <a href="../users/pagina_aluno.php" class="modal-close waves-effect waves-green btn-flat white-text green">Ok</a>
+    </div>
+  </div>
+<?php
+}else{
+?>
+<!-- Modal Structure -->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <h4>Que pena! você errou essa questão!</h4>
+      <p>Feedback dessa questão: <br> <?php echo "$feed"; ?> </p>
+    </div>
+    <div class="modal-footer">
+      <a href="../users/pagina_aluno.php" class="modal-close waves-effect waves-green btn-flat white-text red">Ok</a>
+    </div>
+  </div>
+<?php 
 }
-if ($q2 == $correta2) {
-	$pontuacao = $pontuacao + 10;
-}
-if ($q3 == $correta3) {
-	$pontuacao = $pontuacao + 10;
-}
-
-$porcentagem = ($pontuacao * 100) / 30;
-$porcentagem = round($porcentagem, 0);
-
 ?>
 
-<nav style="background-color: #1976d2;">
-    <div class="nav-wrapper">
-    </div>
-</nav>
 
-<div class="row">
-    <div class="col s12 m6 push-m3">
-      <div class="card white">
-        <div class="card-content black-text">
-        	<span class="card-title" align="center"> Resultado </span>
-        	<div style="color: green; font-weight: bold; font-family: arial;">
-	           <?php
-	           if ($q1 == $correta1) {
-	             echo "$ativ1 // Correta <br>";
-	             
-                }
-	           ?>
-	           
-	        </div>
-
-	        <div style="color: red; font-weight: bold; font-family: arial;">
-	           <?php
-	           if ($q1 != $correta1) {
-	             echo "$ativ1 // Errada <br>";
-	             
-              }
-	           ?>
-	           
-	        </div>
-	         <?php
-              echo "Feedback da questão 1: $feed1";
-            ?>
-	        <br>
-	        <div style="color: green; font-weight: bold; font-family: arial;">
-	           <?php
-	           if ($q2 == $correta2) {
-	             echo "$ativ2 // Correta <br>";
-	         
-                }
-	           
-	           ?>
-	           
-	        </div>
-	        
-	        <div style="color: red; font-weight: bold; font-family: arial;">
-	           <?php
-	           if ($q2 != $correta2) {
-	             echo "$ativ2 // Errada <br>";
-	             
-              }
-	           
-	           ?>
-	           
-	        </div>
-	         <?php
-              echo "Feedback da questão 2: $feed2";
-            ?>
-	        <br>
-	        <div style="color: green; font-weight: bold; font-family: arial;">
-	           <?php
-	           if ($q3 == $correta3) {
-	             echo "$ativ3 // Correta <br>";
-	             
-              }
-	           ?>
-	           
-	        </div>
-	       
-	        <div style="color: red; font-weight: bold; font-family: arial;">
-	           <?php
-	           if ($q3 != $correta3) {
-	             echo "$ativ3 // Errada <br>";
-	             
-              }
-	           ?>
-
-	        </div>
-	         <?php
-              echo "Feedback da questão 3: $feed3";
-            ?>
-           <br>
-           <br>
-           <div style="color: black; font-weight: bold; font-family: arial;">
-           <?php
-           echo "Seu resultado: $porcentagem%";
-           ?>
-           </div>
-
-        </div>
-      </div>
-    </div>
-</div>
-
+<script type="text/javascript">
+	$(document).ready(function(){
+    $('.modal').modal();
+    $('#modal1').modal('open');
+  });
+</script>
 </body>
 </html>

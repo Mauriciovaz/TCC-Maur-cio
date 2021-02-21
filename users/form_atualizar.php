@@ -19,7 +19,7 @@
    $sql = "SELECT * FROM materia WHERE id=$id";
    $resultado = mysqli_query($conexao,$sql);
    $linha = mysqli_fetch_array($resultado);
-   mysqli_close($conexao);
+   $materiaidconteudo = $linha['idconteudo'];
 ?>
 <nav>
     <div class="nav-wrapper #1976d2 blue darken-2"> 
@@ -35,17 +35,41 @@
       <div class="card #ffebee red lighten-5">
         <div class="card-content white-text">
         <fieldset>
-          <legend style="font-family: arial; font-size: 30px; color: black;" align="center">Adicionar Conteúdo</legend>
+          <legend style="font-family: arial; font-size: 30px; color: black;" align="center">Editar Conteúdo</legend>
           <br>
           <form action="../actions/atualizar_conteudo.php" method="POST">
           <input type="hidden" name="id" value="<?php echo $linha['id'];?>">
-          <div style="margin-left: 10px; color: black; font-size: 20px; font-family: arial; font-weight: bold;">Título: 
-          <input type="text" name="titulo" style="width: 40%; margin-left: 20px;" maxlength="100" minlength="1" value="<?php echo $linha['titulo'];?>" required>
+           <p style="font-weight: bold; margin-left: 2px;">Conteúdo que a atividade se refere: </p>
+          <div class="col s3 m5">
+          <?php
+          $sql3 = "SELECT nome, id FROM conteudo";
+          $resultado3 = mysqli_query($conexao, $sql3);
+          ?>
+          <div id="titulo">
+          <select name="idconteudo">
+            <?php
+            while ($dados = mysqli_fetch_array($resultado3)) {
+            ?>
+            <option <?php if ($dados['id'] == $materiaidconteudo) {?> selected <?php } ?> value="<?php echo $dados['id']; ?>"><?php echo $dados['nome']; ?></option>
+            <?php
+            }
+            ?>
+          </select>
           </div>
+          <p>
+             <label>
+              <input id="check" onclick="esconde()" name="check" type="checkbox" />
+              <span style="color: black">Outro? Qual?</span>
+            </label>
+          </p>
+           </div>
+           <div id="outro">
+        <input type="text" placeholder="Digite aqui o nome do conteúdo" name="outro">
+      </div>
           
           <br>
                  <div class="row">
-                  <div style="color: black; margin-left: 20px; font-size: 20px; font-weight: bold;">Conteúdo: 
+                  <div style="color: black; margin-left: 20px; font-size: 20px; font-weight: bold; margin-top: 10%;">Conteúdo: 
                   </div>
                   <div class="input-field col s12">
                   <center>
@@ -72,6 +96,20 @@
       </div>
     </div>
   </div>
-
+<script type="text/javascript">
+  $("#outro").hide();
+function esconde(){
+  if($("#check").is(":checked")) {
+    $("#titulo").hide();
+    $("#outro").show();
+    }else{
+    $("#titulo").show();
+    $("#outro").hide();
+    }
+}
+  $(document).ready(function(){
+    $('select').formSelect();
+  });
+</script>
 </body>
 </html>

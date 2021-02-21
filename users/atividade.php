@@ -18,129 +18,65 @@
 <?php
  require '../bd.php';
  $id = $_GET['id'];
- $sql = "SELECT * FROM atividade WHERE id = '$id'";
+ $sql = "SELECT atividade.questao, conteudo.nome, atividade.op1, atividade.op2, atividade.op3, atividade.op4, atividade.op5, atividade.feed, atividade.correta, atividade.foto  FROM atividade, conteudo WHERE atividade.id = '$id' AND conteudo.id = atividade.idconteudo";
  $result = mysqli_query($conexao,$sql);
  while ($linha = mysqli_fetch_array($result)){
 ?>
-<form action="../actions/resultado.php" method="POST">
+<form action='' method="POST" id="form1">
   <div class="row">
     <div class="col s12 m6 push-m3">
       <div class="card white">
         <div class="card-content black-text">
-          <span class="card-title" align="center"> <?php echo $linha['conteudo'] ?> </span>
+          <span class="card-title" align="center"> <?php echo $linha['nome'] ?> </span>
           <br>
           <!-- QUESTÃO 1 -->
-         <div style="font-weight: bold; font-size: 18px; font-family: arial;"> <?php echo $linha['questao1'] ?> </div>
+
+         <div style="font-weight: bold; font-size: 18px; font-family: arial;"> <?php echo $linha['questao'] ?> </div>
          <br>
 
-         
+         <div align="center">
+          <?php
+          if ($linha['foto'] != 'empty') {
+          ?>
+          <img class="materialboxed" width="500" height="450" src="fotos/<?php echo $linha['foto']; ?>">
+          <?php
+          }
+          ?>
+        </div>
+
       	<label>
         <input name="q1" type="radio" value="1" />
-        <span style="color: black; margin-left: 20px; font-size: 15px; font-family: arial;"><?php echo $linha['op1q1'] ?></span>
+        <span style="color: black; margin-left: 20px; font-size: 15px; font-family: arial;"><?php echo $linha['op1'] ?></span>
       	</label>
       	<br>
       	<label>
         <input name="q1" type="radio" value="2"/>
-        <span style="color: black; margin-left: 20px; font-size: 15px; font-family: arial;"><?php echo $linha['op2q1'] ?></span>
+        <span style="color: black; margin-left: 20px; font-size: 15px; font-family: arial;"><?php echo $linha['op2'] ?></span>
       	</label>
       	<br>
       	<label>
         <input name="q1" type="radio" value="3"/>
-        <span style="color: black; margin-left: 20px; font-size: 15px; font-family: arial;"><?php echo $linha['op3q1'] ?></span>
+        <span style="color: black; margin-left: 20px; font-size: 15px; font-family: arial;"><?php echo $linha['op3'] ?></span>
       	</label>
       	<br>
       	<label>
         <input name="q1" type="radio" value="4"/>
-        <span style="color: black; margin-left: 20px; font-size: 15px; font-family: arial;"><?php echo $linha['op4q1'] ?></span>
+        <span style="color: black; margin-left: 20px; font-size: 15px; font-family: arial;"><?php echo $linha['op4'] ?></span>
       	</label>
       	<br>
       	<label>
         <input name="q1" type="radio" value="5"/>
-        <span style="color: black; margin-left: 20px; font-size: 15px; font-family: arial;"><?php echo $linha['op5q1'] ?></span>
+        <span style="color: black; margin-left: 20px; font-size: 15px; font-family: arial;"><?php echo $linha['op5'] ?></span>
       	</label>
     	
     	<br>
     	<br>
         
-        <!-- QUESTÃO 2 -->
-
-    	<div style="font-weight: bold; font-size: 18px; font-family: arial;"> <?php echo $linha['questao2'] ?> </div>
-         <br>
-
-         
-      	<label>
-        <input name="q2" type="radio" value="1" />
-        <span style="color: black; margin-left: 20px; font-size: 15px; font-family: arial;"><?php echo $linha['op1q2'] ?></span>
-      	</label>
-      	<br>
-      	<label>
-        <input name="q2" type="radio" value="2"/>
-        <span style="color: black; margin-left: 20px; font-size: 15px; font-family: arial;"><?php echo $linha['op2q2'] ?></span>
-      	</label>
-      	<br>
-      	<label>
-        <input name="q2" type="radio" value="3"/>
-        <span style="color: black; margin-left: 20px; font-size: 15px; font-family: arial;"><?php echo $linha['op3q2'] ?></span>
-      	</label>
-      	<br>
-      	<label>
-        <input name="q2" type="radio" value="4"/>
-        <span style="color: black; margin-left: 20px; font-size: 15px; font-family: arial;"><?php echo $linha['op4q2'] ?></span>
-      	</label>
-      	<br>
-      	<label>
-        <input name="q2" type="radio" value="5"/>
-        <span style="color: black; margin-left: 20px; font-size: 15px; font-family: arial;"><?php echo $linha['op5q2'] ?></span>
-      	</label>
-
-      	<br>
-      	<br>
-
-      	<!-- QUESTÃO 3 -->
-
-    	<div style="font-weight: bold; font-size: 18px; font-family: arial;"> <?php echo $linha['questao3'] ?> </div>
-         <br>
-
-         
-      	<label>
-        <input name="q3" type="radio" value="1" />
-        <span style="color: black; margin-left: 20px; font-size: 15px; font-family: arial;"><?php echo $linha['op1q3'] ?></span>
-      	</label>
-      	<br>
-      	<label>
-        <input name="q3" type="radio" value="2"/>
-        <span style="color: black; margin-left: 20px; font-size: 15px; font-family: arial;"><?php echo $linha['op2q3'] ?></span>
-      	</label>
-      	<br>
-      	<label>
-        <input name="q3" type="radio" value="3"/>
-        <span style="color: black; margin-left: 20px; font-size: 15px; font-family: arial;"><?php echo $linha['op3q3'] ?></span>
-      	</label>
-      	<br>
-      	<label>
-        <input name="q3" type="radio" value="4"/>
-        <span style="color: black; margin-left: 20px; font-size: 15px; font-family: arial;"><?php echo $linha['op4q3'] ?></span>
-      	</label>
-      	<br>
-      	<label>
-        <input name="q3" type="radio" value="5"/>
-        <span style="color: black; margin-left: 20px; font-size: 15px; font-family: arial;"><?php echo $linha['op5q3'] ?></span>
-      	</label>
+        <?php 
+        $correta = $linha['correta'];
+        $feed = $linha['feed'];
+         ?>
         
-        <br>
-        <br>
-        <input type="hidden" name="ativ1" value="<?php echo $linha['questao1'] ?>">
-        <input type="hidden" name="ativ2" value="<?php echo $linha['questao2'] ?>">
-        <input type="hidden" name="ativ3" value="<?php echo $linha['questao3'] ?>">
-
-        <input type="hidden" name="correta1" value="<?php echo $linha['correta1'] ?>">
-        <input type="hidden" name="correta2" value="<?php echo $linha['correta2'] ?>">
-        <input type="hidden" name="correta3" value="<?php echo $linha['correta3'] ?>">
-
-        <input type="hidden" name="feed1" value="<?php echo $linha['feed1'] ?>">
-        <input type="hidden" name="feed2" value="<?php echo $linha['feed2'] ?>">
-        <input type="hidden" name="feed3" value="<?php echo $linha['feed3'] ?>">
-
         <center>
         <input type="submit" value="Enviar" class="btn">
         </center>
@@ -149,8 +85,48 @@
     </div>
   </div>
 </form>
+<div id="modal1" class="modal">
+    <div class="modal-content">
+      <h4>Parabéns! você acertou essa questão!</h4>
+      <p>Feedback dessa questão: <br> <?php echo "$feed"; ?> </p>
+    </div>
+    <div class="modal-footer">
+      <a href="../users/pagina_aluno.php" class="modal-close waves-effect waves-green btn-flat white-text green">Ok</a>
+    </div>
+  </div>
+
+  <div id="modal2" class="modal">
+    <div class="modal-content">
+      <h4>Que pena! você errou essa questão!</h4>
+      <p>Feedback dessa questão: <br> <?php echo "$feed"; ?> </p>
+    </div>
+    <div class="modal-footer">
+      <a href="../users/pagina_aluno.php" class="modal-close waves-effect waves-green btn-flat white-text red">Ok</a>
+    </div>
+  </div>
 <?php
 }
 ?>
+<script type="text/javascript">
+$(document).ready(function (){
+  $('.modal').modal();
+  $(document).on("submit", "#form1", function() { 
+
+  var opcaocheck = document.querySelector('input[name="q1"]:checked').value;
+  var correta = <?php echo $correta; ?>;
+
+
+   if(correta == opcaocheck){
+        $('#modal1').modal('open');
+        event.preventDefault();
+      }else{
+        $('#modal2').modal('open');
+        event.preventDefault();
+      }
+      
+
+  });
+});
+</script>
 </body>
 </html>

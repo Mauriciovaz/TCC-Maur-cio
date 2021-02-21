@@ -1,9 +1,13 @@
+<?php
+require '../bd.php';
+?>
 <!DOCTYPE html>
 <html>
 <head>
 	<title>Adicionar conteúdo</title>
 	<meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script type="text/javascript" src="../jquery-3.4.1.js"></script>
     <script type="text/javascript" src="../js/materialize.min.js"></script>
 	 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   	<link type="text/css" rel="stylesheet" href="../css/materialize.min.css"  media="screen,projection"/>
@@ -77,6 +81,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     })
 })
+
+
 </script>
 <nav id="navbar">
     <div class="nav-wrapper"> 
@@ -96,7 +102,35 @@ document.addEventListener('DOMContentLoaded', () => {
           <fieldset>
             <legend class="center" style="font-size: 25px; font-weight: bold;">Adicionar Conteúdo</legend>
           <div style="margin-left: 10px; font-size: 20px; font-family: arial; font-weight: bold;">Título: 
-          <input type="text" name="titulo" style="width: 40%; margin-left: 20px;" placeholder="Adicione aqui o título" maxlength="100" minlength="1" required>
+
+            <?php
+                $sql1 = "SELECT * FROM conteudo";
+                $resultado1 = mysqli_query($conexao, $sql1);
+            ?>
+            <div id="titulo">
+          <select name="titulo">
+         <?php
+          while ($dados1 = mysqli_fetch_array($resultado1)) {
+          ?>
+          <option value="<?php echo $dados1['nome']; ?>"><?php echo $dados1['nome']; ?></option>
+          <?php
+          }
+        ?>
+          </select>
+            </div>
+          <p>
+             <label>
+              <input id="check" onclick="esconde()" name="check" type="checkbox" />
+              <span style="color: black">Outro? Qual?</span>
+            </label>
+          </p>
+
+          <p>
+      <div id="outro">
+        <input type="text" placeholder="Digite aqui o nome do conteúdo" name="outro">
+      </div>
+    </p>
+
           </div>
           
           <br>
@@ -147,5 +181,22 @@ document.addEventListener('DOMContentLoaded', () => {
     </div>
   </div>
   
+
+<script type="text/javascript">
+  $("#outro").hide();
+function esconde(){
+  if($("#check").is(":checked")) {
+    $("#titulo").hide();
+    $("#outro").show();
+    }else{
+    $("#titulo").show();
+    $("#outro").hide();
+    }
+}
+$(document).ready(function(){
+    $('select').formSelect();
+    });
+</script>
+
 </body>
 </html>

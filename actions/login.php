@@ -9,7 +9,7 @@ $entrar = $_POST['entrar'];
 
 if (isset($entrar)) {
            
-    $verifica = mysqli_query($conexao,"SELECT * FROM cadastro WHERE email = 
+    $verifica = mysqli_query($conexao,"SELECT * FROM usuarios WHERE email = 
     '$email' AND senha = '$senha'") or die("erro ao selecionar");
       if (mysqli_num_rows($verifica)<=0){
         echo"<script language='javascript' type='text/javascript'>

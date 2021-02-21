@@ -10,6 +10,7 @@
 
     require "../bd.php";
     
+    $id = $_POST['id'];
 
     $questao = $_POST['questao'];
 
@@ -46,11 +47,11 @@
     move_uploaded_file($_FILES['arquivo']['tmp_name'], $diretorio.$novo_nome);
 
     
-    $sql = "INSERT INTO atividade (idconteudo, questao, op1, op2, op3, op4, op5, correta, feed, foto) VALUES ($idconteudo, '$questao', '$op1', '$op2', '$op3', '$op4', '$op5', $correta, '$feed', '$novo_nome')";
+    $sql = "UPDATE atividade SET idconteudo=$idconteudo, questao='$questao', op1='$op1', op2='$op2', op3='$op3', op4='$op4', op5='$op5', correta=$correta, feed='$feed', foto='$novo_nome' WHERE id = $id ";
    $resultado = mysqli_query($conexao, $sql);
 
    if ($resultado) {
-       echo "<script> alert('Atividade registrada com sucesso');  window.location.href='../users/pagina_professor.php'; </script>";
+       echo "<script> alert('Atividade atualizada com sucesso');  window.location.href='../users/pagina_professor.php'; </script>";
    }else{
     echo mysqli_error($conexao);
    }

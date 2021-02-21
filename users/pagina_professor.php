@@ -26,18 +26,9 @@
     #navbar[dark]{
       background-color: black;
     }
-    #navbar1[dark]{
-      background-color: black;
-    }
-    #card[dark]{
-      background-color: #696969;
-      color: white;
-    }
+
     #acessar_conteudo{
       background-color: #1976d2;
-    }
-    #acessar_conteudo[dark]{
-      background-color: black;
     }
   </style>
 </head>
@@ -98,47 +89,6 @@ document.addEventListener('DOMContentLoaded', () => {
     })
 })
 
-document.addEventListener('DOMContentLoaded', () => {
-    const navbar1 = document.getElementById('navbar1')
-    const inputDarkMode = document.getElementById('input-dark-mode')
-        
-    inputDarkMode.addEventListener('change', () => {
-        if(inputDarkMode.checked){
-            navbar1.setAttribute("dark", "true")
-        }else{
-            navbar1.removeAttribute("dark")
-        }
-    })
-})
-// Card com tema escuro:
-document.addEventListener('DOMContentLoaded', () => {
-    const card = document.getElementById('card')
-    const inputDarkMode = document.getElementById('input-dark-mode')
-        
-    inputDarkMode.addEventListener('change', () => {
-        if(inputDarkMode.checked){
-            card.setAttribute("dark", "true")
-        }else{
-            card.removeAttribute("dark")
-        }
-    })
-})
-
-// Botão de acessar conteúdo com tema escuro: 
-document.addEventListener('DOMContentLoaded', () => {
-    const acessar_conteudo = document.getElementById('acessar_conteudo')
-    const inputDarkMode = document.getElementById('input-dark-mode')
-        
-    inputDarkMode.addEventListener('change', () => {
-        if(inputDarkMode.checked){
-            acessar_conteudo.setAttribute("dark", "true")
-        }else{
-            acessar_conteudo.removeAttribute("dark")
-        }
-    })
-})
-
-
 </script>
 
 <?php
@@ -149,7 +99,7 @@ require "../bd.php";
 
 $email = $_SESSION['email'];
 
-$sql = "SELECT * FROM cadastro WHERE email = '$email'";
+$sql = "SELECT * FROM usuarios WHERE email = '$email'";
 $foto = mysqli_query($conexao, $sql);
 if(mysqli_num_rows($foto) > 0){ 
 while ($dados = mysqli_fetch_array($foto)) { 
@@ -160,12 +110,16 @@ $resultFoto = $dados['foto'];
     <div class="nav-wrapper" id="navbar"> 
 
       <a href="#" data-target="slide-out" class="sidenav-trigger show-on-large"><i class="material-icons">menu</i></a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="atividades.php" target="_blank">Atividades</a></li>
+      </ul>
       
     </div>
   </nav>
+  
   <br> 
    <center>
-   <img src="../design/logo.png" style="width: 50%; height: auto;">
+   <img src="../design/logo.png" style="width: 50%; height: auto;" id="logo">
    </center>
 
   <ul id="slide-out" class="sidenav" style="background-color: #1976d2;">
@@ -178,6 +132,7 @@ $resultFoto = $dados['foto'];
       <a href="#" data-target="slide-out1" class="sidenav-trigger show-on-large" style="color: white; font-size: 17px; font-family: arial;"> Configurações </a> <br>
       <a href="materia.php" style="color: white; font-size: 17px; font-family: arial;"> Adicionar conteúdo</a><br>
       <a href="adicionar_atividade.php" style="color: white; font-size: 17px; font-family: arial;" target="_blank"> Adicionar atividade</a><br>
+      <a href="lista_atividade.php" style="color: white; font-size: 17px; font-family: arial;" target="_blank"> Lista de atividades</a><br>
        <a href="lista_conteudo.php" style="color: white; font-size: 17px; font-family: arial;"> Lista de conteúdo</a> <br>
        <a href="lista_alunos.php" style="color: white; font-size: 17px; font-family: arial;">Lista de alunos</a> <br>
        <div style="color: white;">
@@ -199,7 +154,7 @@ $resultFoto = $dados['foto'];
   <ul id="slide-out1" class="sidenav" style="background-color: #1976d2; margin-left: 4px;">
   <?php
 
-   $sql = "SELECT * FROM cadastro WHERE email='$email'";
+   $sql = "SELECT * FROM usuarios WHERE email='$email'";
    $resultado = mysqli_query($conexao,$sql);
    if (mysqli_num_rows($resultado) > 0) {
      while ($linha = mysqli_fetch_array($resultado)) {
@@ -250,7 +205,7 @@ $resultFoto = $dados['foto'];
            <div class="owl-stage">
           <?php
           require "../bd.php";
-          $sql2 = "SELECT * FROM materia";
+          $sql2 = "SELECT conteudo.nome, materia.id FROM materia, conteudo WHERE conteudo.id = materia.idconteudo";
           $resultado2 = mysqli_query($conexao,$sql2);
           
           if(mysqli_num_rows($resultado) > 0){
@@ -258,21 +213,21 @@ $resultFoto = $dados['foto'];
           ?>
           <div class="owl-item" >
           <div class="col s12 m12" >
-          <div class="card small hoverable z-depth-3" id="card">
+          <div class="card small hoverable z-depth-3" id="card" style="border-style: solid; border-color: #1976d2; border-radius: 8px;">
             <nav >
               <div class="nav-wrapper" id="navbar1">
                 <a class="brand-logo center">Conteúdo</a>
               </div>
             </nav>
             <div >
-              <p style="margin-left: 10px; font-family: arial; font-size: 18px;">Título: <?php echo $linha['titulo']?></p>
+              <p style="margin-left: 10px; font-family: arial; font-size: 18px;">Título: <?php echo $linha[0]; ?></p>
               
             </div>
             
             <p style="font-size: 15px; margin-left: 10px">Para ler o conteúdo, clique na opção abaixo.</p>
              
               <div class="card-action" id="acessar_conteudo">
-               <center> <a href="conteudo.php?id=<?php echo $linha['id']; ?>" target="_blank" style="font-weight: bold;"> Acessar o conteúdo</a> </center>
+               <center> <a href="conteudo.php?id=<?php echo $linha[1]; ?>" target="_blank" style="font-weight: bold;"> Acessar o conteúdo</a> </center>
               </div>
           </div>
           </div>
@@ -289,60 +244,45 @@ $resultFoto = $dados['foto'];
 
 </div>
 
-<center>
-<h4 style="color: white; -webkit-text-stroke-width: 2.5px; -webkit-text-stroke-color: #000; font-size: 60px; font-family: arial; margin-left: 10px; margin-right: 10px;" class="z-depth-3">Atividades</h4>
-</center>
-  <div class="row">
+<?php
+}
+}
+?>
 
-     <div class="owl-carousel owl-theme owl-loaded" id="carousel1">
-        <div class="owl-stage-outer">
-           <div class="owl-stage">
-          <?php
-          require "../bd.php";
-          $sql2 = "SELECT * FROM atividade";
-          $resultado2 = mysqli_query($conexao,$sql2);
-          
-          if(mysqli_num_rows($resultado) > 0){
-          while ($linha = mysqli_fetch_array($resultado2)) {
-          ?>
-          <div class="owl-item" >
-          <div class="col s12 m12" >
-          <div class="card small hoverable z-depth-3" id="card">
-            <nav >
-              <div class="nav-wrapper" id="navbar1">
-                <a class="brand-logo center">Atividade</a>
+<footer class="page-footer" style="background-color: #1976d2">
+          <div class="container">
+            <div class="row">
+              <div class="col l6 s12">
+                <h5 class="white-text">Quem Nós Somos?</h5>
+                <p class="grey-text text-lighten-4">Somos uma equipe de desenvolvimento web, oferecemos nossos produtos para facilitar a vida das pessoas. O site EducaContábil é um site com o objetivo de melhorar o ensino de contabilidade e garantir o aprendizado dos alunos. </p>
               </div>
-            </nav>
-            <div >
-              <p style="margin-left: 10px; font-family: arial; font-size: 18px;">Atividade sobre: <?php echo $linha['conteudo']?></p>
               
             </div>
-            
-            <p style="font-size: 15px; margin-left: 10px">Para realizar a atividade, clique na opção abaixo.</p>
-             
-              <div class="card-action" id="acessar_conteudo">
-               <center> <a href="atividade.php?id=<?php echo $linha['id']; ?>" target="_blank" style="font-weight: bold;"> Acessar a atividade</a> </center>
-              </div>
           </div>
+          <div class="footer-copyright">
+            <div class="container">
+            © 2020 Maurício Vaz Flores
+            </div>
           </div>
-        </div>
-<?php
-          }
-          }
-           
-
-?>
-</div>
-</div>
-</div>
-
-</div>
-
-<?php
+        </footer>
+<script type="text/javascript">
+  $("#carousel1").owlCarousel({
+    responsive: {
+  0:{
+    items: 1
+  },
+  600:{
+    items: 2
+  },
+  700:{
+    items: 3
+  },
+  1000: {
+    items: 5
+  }
 }
-}
-?>
+  });
 
-
+</script>
 </body>
 </html>

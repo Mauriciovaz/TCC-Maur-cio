@@ -13,11 +13,23 @@
 include "../bd.php";
 
 $id= $_POST['id'];
-$titulo = $_POST['titulo'];
 $conteudo = $_POST['conteudo'];
 
+if (!empty($_POST['outro'])) {
+        $outro = $_POST['outro'];
+        $sql1 = "INSERT INTO conteudo (nome) VALUES ('$outro')";
+        mysqli_query($conexao, $sql1);
 
-$sql = "UPDATE materia SET id='$id', titulo='$titulo', conteudo='$conteudo' WHERE id=$id";
+        $sql2 = "SELECT id FROM conteudo WHERE nome = '$outro'";
+        $resultado2 = mysqli_query($conexao, $sql2);
+        $dados = mysqli_fetch_array($resultado2);
+        $idconteudo = $dados['id'];
+    }else{
+        $idconteudo = $_POST['idconteudo'];
+    }
+
+
+$sql = "UPDATE materia SET id='$id', idconteudo = $idconteudo, conteudo='$conteudo' WHERE id=$id";
 
 $resultado = mysqli_query($conexao,$sql);
 

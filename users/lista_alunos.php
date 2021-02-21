@@ -35,7 +35,7 @@
          <th>Nome</th> 
          <th>E-mail</th> 
          </tr>';
-           $sql = "SELECT * FROM `cadastro` WHERE `tipo`= 'aluno'";
+           $sql = "SELECT * FROM `usuarios` WHERE `tipo`= 'aluno'";
            $resultado = mysqli_query($conexao, $sql);
 
            while ($linha = mysqli_fetch_array($resultado)) {

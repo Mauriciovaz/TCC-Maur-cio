@@ -22,8 +22,27 @@
 
     move_uploaded_file($_FILES['arquivo']['tmp_name'], $diretorio.$novo_nome);
 
+
+    if (isset($_POST['check'])) {
+      $outro = $_POST['outro'];
+      if (empty($outro)) {
+        echo "<script> alert('Campo de titulo vazio!'); window.location.href='../users/materia.php'; </script>";
+        die;
+      }
+      $titulo = $outro;
+    }
+
+
+    $sql2 = "INSERT INTO conteudo (nome) VALUES ('$titulo')";
+    mysqli_query($conexao, $sql2);
+
+    $sql3 = "SELECT id FROM conteudo WHERE nome = '$titulo'";
+    $resultadoid = mysqli_query($conexao, $sql3);
+    $dados = mysqli_fetch_array($resultadoid);
+
+    $idconteudo = $dados[0];
     
-    $sql = "INSERT INTO materia (titulo, conteudo, foto) VALUES ('$titulo', '$conteudo', '$novo_nome')";
+    $sql = "INSERT INTO materia (idconteudo, conteudo, foto) VALUES ('$idconteudo', '$conteudo', '$novo_nome')";
    mysqli_query($conexao, $sql);
 
    if ($sql) {
